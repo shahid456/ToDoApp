@@ -1,4 +1,5 @@
-from User_Management import User_Man
-class User_Management_Model(User_Man):
+from DatabaseManagement import DatabaseManagement as data
+class User_Management_Model:
     def _init_(self):
         pass
+    def registeruser(self,usr,password):
