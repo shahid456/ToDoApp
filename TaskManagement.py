@@ -3,12 +3,12 @@ from TaskManagementMod import TaskManagementMod
 
 class TaskManagement (TaskManagementMod):
     def __init__(self, userId):
-        super().__init__(userId)
         print("Task management constructed")
+        super().__init__(userId)
 
     def add(self, date, content):
-        super().insertTask(date, content)
         print("Add called")
+        super().insertTask(date, content)
 
     def list(self, options):
         print("List called")
@@ -20,3 +20,10 @@ class TaskManagement (TaskManagementMod):
 
     def delete(self, option, value):
         print('Delete called')
+        super().deleteTask(option, value)
+
+
+if __name__ == '__main__':
+    task = TaskManagement('123')
+    #task.add('12/13/14', 'Hello World')
+    task.add('13/01/14', 'Bye World')
