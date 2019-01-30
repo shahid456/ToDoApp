@@ -15,6 +15,18 @@ class TaskManagement (TaskManagementMod):
         for task in self.userTasks:
             print(task)
 
+    def listByDate(self, date):
+        print(date)
+
+    def listAsc(self):
+        print()
+
+    def listDesc(self):
+        print()
+
+    def count(self):
+        print()
+
     def update(self, id, field, content):
         print('Update Called')
         super().updateTask(id, field, content)
