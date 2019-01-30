@@ -17,6 +17,9 @@ class Interface:
     def login(self):
         user_man = User_Man()
         val = user_man.login()
+        if val == -1:
+            print("Access denied")
+            return
         self.TM = TaskManagement(val)
         while True:
             log_commands_allowed = ["add", "list", "update", "delete", "logout"]
@@ -27,14 +30,14 @@ class Interface:
                 print("Command not found")
                 continue
             if first_part_of_log_command == log_commands_allowed[0]:
+                log_command = log_enter.split(" ", 1)
                 if len(log_command) != 2:
                     print("Input date is not valid.")
                     continue
                 inputDate, content = list(log_command[1].split(";"))
                 day, month, year = inputDate.split('/')
-                isValidDate = True
-                try :
-                    datetime.datetime(int(year),int(month),int(day))
+                try:
+                    datetime.datetime(int(year), int(month), int(day))
                     self.TM.add(inputDate, content)
                 except ValueError :
                     print("Date is not correct")
@@ -42,7 +45,7 @@ class Interface:
                 if len(log_command) != 2:
                     print("Input date is not valid.")
                     continue
-                options=["asc", "desc", "count"]
+                options = ["asc", "desc", "count"]
                 if log_command[1] not in options:
                     inputDate = log_command[1]
                     day, month, year = inputDate.split('/')
@@ -72,7 +75,7 @@ class Interface:
                     except ValueError :
                         print("Input date is not valid..")
                         continue
-                self.TM.update(val, fields[0], fields[1])
+                self.TM.update(command[1], fields[0], fields[1])
             elif first_part_of_log_command == log_commands_allowed[3]:
                 if len(log_command) != 2:
                     print("Input data is not valid..")

@@ -43,6 +43,8 @@ class TaskManagement (TaskManagementMod):
 
 if __name__ == '__main__':
     task = TaskManagement('123')
+    task.add('12/13/14', 'Hello')
+    task.updateTask()
     #task.add('12/13/14', 'Hello World')
     #task.add('13/01/14', 'Bye World')
     #task.add('14/02/14', 'Hello')
