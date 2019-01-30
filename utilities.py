@@ -5,7 +5,7 @@ def generate_unique_id():
     return str(uuid.uuid4())
 
 
-def MydateSor(data_list):
+def myDateSort(data_list):
     temp = []
     while data_list:
         minimum = data_list[0]  # arbitrary number in list

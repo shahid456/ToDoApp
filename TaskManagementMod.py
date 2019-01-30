@@ -26,13 +26,24 @@ class TaskManagementMod:
         self.__database.write(self.tasks)
         print("Task inserted")
 
-    def deleteTask(self, taskId):
+    def deleteTask(self, option, value):
         for x in range(len(self.userTasks)):
-            if self.userTasks[x]['taskid'] == taskId:
+            if self.userTasks[x][option] == value:
                 self.userTasks[x].pop()
                 break
         for x in range(len(self.tasks)):
-            if self.tasks[x]['taskid'] == taskId:
+            if self.tasks[x][option] == value:
+                self.tasks.pop(x)
+                break
+        self.__database.write(self.tasks)
+
+    def deleteTaskByDate(self, date):
+        for x in range(len(self.userTasks)):
+            if self.userTasks[x]['date'] == taskId:
+                self.userTasks[x].pop()
+                break
+        for x in range(len(self.tasks)):
+            if self.tasks[x]['date'] == taskId:
                 self.tasks.pop(x)
                 break
         self.__database.write(self.tasks)
