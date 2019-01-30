@@ -2,7 +2,7 @@ import json
 
 
 class DatabaseManagement:
-    def __init__(self, filename):
+    def __init__(self, filename='test.json'):
         print('Database constructor called')
         self.filename = filename
         file = open(self.filename, 'w+')
