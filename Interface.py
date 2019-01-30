@@ -1,6 +1,9 @@
 from User_Management import User_Man
+from TaskManagement import TaskManagement
 
 class Interface:
+    def __init(self):
+        self.TM=TaskManagement()
 
     def __init__(self):
         print("Constructor called")
@@ -13,6 +16,19 @@ class Interface:
     def login(self):
         user_man = User_Man()
         val = user_man.login()
+        log_commands_allowed = ["add", "list", "update", "delete", "logout"]
+        log_enter=input()
+        log_command=list(log_enter.split(" "))
+        first_part_of_log_command=log_command[0]
+        if first_part_of_log_command in log_commands_allowed:
+            if first_part_of_log_command == log_commands_allowed[0]:
+                if len(log_command)==2:
+                    fields=list(log_command[1].split(";"))
+
+
+
+
+
     def deleteuser(self,command):
         if len(command) == 2:
             user_man = User_Man()
