@@ -4,14 +4,12 @@ import os.path
 
 class DatabaseManagement:
     def __init__(self, filename):
-        print('Database constructor called')
         self.filename = filename
         if not os.path.isfile(self.filename):
             file = open(self.filename, 'w+')
             file.close()
 
     def write(self, content):
-        print('Insertion done')
         if not content:
             return False
         jcon = json.dumps(content)
