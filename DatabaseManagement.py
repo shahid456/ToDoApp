@@ -2,7 +2,7 @@ class DatabaseManagement:
     def __init__(self):
         print('Database constructor called')
 
-    def write(self):
+    def write(self, content):
         print('Insertion done')
         return 0
 
