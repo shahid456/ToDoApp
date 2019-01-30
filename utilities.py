@@ -15,3 +15,8 @@ def myDateSort(data_list):
         temp.append(minimum)
         data_list.remove(minimum)
     return temp
+
+
+if __name__ == '__main__':
+    data = ['']
+    myDateSort(data)
