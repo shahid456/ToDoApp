@@ -29,7 +29,7 @@ class TaskManagementMod:
     def deleteTask(self, option, value):
         for x in range(len(self.userTasks)):
             if self.userTasks[x][option] == value:
-                self.userTasks[x].pop()
+                self.userTasks.pop(x)
                 break
         for x in range(len(self.__tasks)):
             if self.__tasks[x][option] == value:
