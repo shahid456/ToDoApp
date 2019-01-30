@@ -1,5 +1,5 @@
 class DatabaseManagement:
-    def __init__(self):
+    def __init__(self, filename):
         print('Database constructor called')
 
     def write(self, content):
