@@ -14,4 +14,7 @@ class TaskManagement (TaskManagementMod):
         return []
 
     def update(self, id, field, content):
-        print()
+        print('Update Called')
+
+    def delete(self, option, value):
+        print('Delete called')
