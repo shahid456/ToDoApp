@@ -100,10 +100,11 @@ class Interface:
          user_man.listusers()
 
     def updateuser(self, command):
-        if len(command)!=3:
+        if len(command) != 3:
             print("Invalid Expression")
+        field, value = list(command[2].split("="))
         user_man = User_Man()
-        user_man.userupdate(command[1],command[2])
+        user_man.userupdate(command[1], field, value)
 
 
 if __name__ == '__main__':
