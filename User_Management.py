@@ -10,7 +10,20 @@ class User_Man(Model):
         Pass=input("Enter User's Pass")
         return self.model.LoginUser(name,Pass)
     def deleteuser(self,username):
-        pass
+        password=input("Enter User Password")
+        self.model.deleteuser(username,password)
+    def listusers(self):
+        self.model.listUsers()
+    def userupdate(self,username,task):
+        i=task.find('=')
+        if i!=-1:
+            command=task[0:i]
+            content=task[i+1:len(task)]
+        else:
+            print('Incorrect Command')
+        self.model.userUpdate(username,command,content)
+
+
 
 
 
