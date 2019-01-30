@@ -1,12 +1,14 @@
 import json
+import os.path
 
 
 class DatabaseManagement:
     def __init__(self, filename):
         print('Database constructor called')
         self.filename = filename
-        file = open(self.filename, 'w+')
-        file.close()
+        if not os.path.isfile(self.filename):
+            file = open(self.filename, 'w+')
+            file.close()
 
     def write(self, content):
         print('Insertion done')

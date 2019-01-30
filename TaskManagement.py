@@ -12,7 +12,8 @@ class TaskManagement (TaskManagementMod):
 
     def list(self, options):
         print("List called")
-        return self.userTasks
+        for task in self.userTasks:
+            print(task)
 
     def update(self, id, field, content):
         print('Update Called')
@@ -26,4 +27,6 @@ class TaskManagement (TaskManagementMod):
 if __name__ == '__main__':
     task = TaskManagement('123')
     #task.add('12/13/14', 'Hello World')
-    task.add('13/01/14', 'Bye World')
+    #task.add('13/01/14', 'Bye World')
+    #task.add('14/02/14', 'Hello')
+    #task.list('123')

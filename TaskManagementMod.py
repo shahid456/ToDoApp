@@ -22,8 +22,8 @@ class TaskManagementMod:
             'content': content
         }
         self.userTasks.append(task)
-        self.tasks.append(task)
-        self.__database.write(self.tasks)
+        self.__tasks.append(task)
+        self.__database.write(self.__tasks)
         print("Task inserted")
 
     def deleteTask(self, option, value):
@@ -31,23 +31,11 @@ class TaskManagementMod:
             if self.userTasks[x][option] == value:
                 self.userTasks[x].pop()
                 break
-        for x in range(len(self.tasks)):
-            if self.tasks[x][option] == value:
-                self.tasks.pop(x)
+        for x in range(len(self.__tasks)):
+            if self.__tasks[x][option] == value:
+                self.__tasks.pop(x)
                 break
-        self.__database.write(self.tasks)
-
-    def deleteTaskByDate(self, date):
-        for x in range(len(self.userTasks)):
-            if self.userTasks[x]['date'] == date:
-                self.userTasks[x].pop()
-                break
-        for x in range(len(self.tasks)):
-            if self.tasks[x]['date'] == date:
-                self.tasks.pop(x)
-                break
-        self.__database.write(self.tasks)
-
+        self.__database.write(self.__tasks)
 
     def updateTask(self, taskId, field, content):
         for x in range(len(self.userTasks)):
@@ -55,16 +43,16 @@ class TaskManagementMod:
                 self.userTasks[x][field] = content
                 break
 
-        for x in range(len(self.tasks)):
-            if self.tasks[x]['taskid'] == taskId:
-                self.tasks[x][field] = content
+        for x in range(len(self.__tasks)):
+            if self.__tasks[x]['taskid'] == taskId:
+                self.__tasks[x][field] = content
                 break
 
-        self.__database.write(self.tasks)
+        self.__database.write(self.__tasks)
 
 
     def __fetchUserTasks(self):
-        self.tasks = self.__database.read()
+        self.__tasks = self.__database.read()
         for task in self.__tasks:
             if task['userid'] == self.userId:
                 self.userTasks.append(task)
