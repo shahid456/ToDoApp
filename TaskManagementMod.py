@@ -39,11 +39,11 @@ class TaskManagementMod:
 
     def deleteTaskByDate(self, date):
         for x in range(len(self.userTasks)):
-            if self.userTasks[x]['date'] == taskId:
+            if self.userTasks[x]['date'] == date:
                 self.userTasks[x].pop()
                 break
         for x in range(len(self.tasks)):
-            if self.tasks[x]['date'] == taskId:
+            if self.tasks[x]['date'] == date:
                 self.tasks.pop(x)
                 break
         self.__database.write(self.tasks)

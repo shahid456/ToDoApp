@@ -3,8 +3,10 @@ import json
 
 class DatabaseManagement:
     def __init__(self, filename):
-        self.filename = filename
         print('Database constructor called')
+        self.filename = filename
+        file = open(self.filename, 'w+')
+        file.close()
 
     def write(self, content):
         print('Insertion done')

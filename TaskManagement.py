@@ -21,3 +21,9 @@ class TaskManagement (TaskManagementMod):
     def delete(self, option, value):
         print('Delete called')
         super().deleteTask(option, value)
+
+
+if __name__ == '__main__':
+    task = TaskManagement('123')
+    #task.add('12/13/14', 'Hello World')
+    task.add('13/01/14', 'Bye World')
