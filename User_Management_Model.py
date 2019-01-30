@@ -3,7 +3,7 @@ import json
 import utilities
 class User_Management_Model(DatabaseManagement):
     def __init__(self):
-        super().__init__(self)
+        DatabaseManagement.__init__(self,'test.json')
         self.f=self.read()
     def registeruser(self,usr,password):
         check=0
@@ -21,6 +21,7 @@ class User_Management_Model(DatabaseManagement):
             if self.f[x]['username'] == usr:
                 if self.f[x]['password']==pasword:
                     check = x
+                    print('User Logged In')
                     break
                 else:
                     print('Incorrect Password, Access Denied')
@@ -48,7 +49,7 @@ class User_Management_Model(DatabaseManagement):
                 l=self.f[x].keys()
                 if command in l:
                     self.f[x][command]=content
-                    self.write(f)
+                    self.write(self.f)
                     return
                 else:
                     print('No such Command')

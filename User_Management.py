@@ -22,11 +22,3 @@ class User_Man(User_Management_Model):
         else:
             print('Incorrect Command')
         self.userUpdate(username,command,content)
-
-if __name__ == '__main__':
-    user=User_Man()
-    user.register("shahid","yess")
-
-
-
-
