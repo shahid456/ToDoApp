@@ -59,7 +59,7 @@ class Interface:
                     else:
                         if log_command[1] == "asc":
                             self.TM.listAsc()
-                        elif options == "desc":
+                        elif log_command[1] == "desc":
                             self.TM.listDesc()
                         else:
                             self.TM.count()

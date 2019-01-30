@@ -1,5 +1,6 @@
 from TaskManagementMod import TaskManagementMod
 import utilities
+import datetime
 
 
 class TaskManagement (TaskManagementMod):
@@ -30,7 +31,14 @@ class TaskManagement (TaskManagementMod):
             print(task)
 
     def count(self):
-        print()
+        num = 0
+        now = datetime.datetime.now()
+        current = str(now).split(' ', 1)[0].replace('-', '')
+        for task in self.userTasks:
+            cmp = ''.join(task["date"].split('/')[::-1])
+            if int(cmp) >= int(current):
+                num += 1
+        print(num)
 
     def update(self, id, field, content):
         print('Update Called')
