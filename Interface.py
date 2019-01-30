@@ -20,7 +20,7 @@ class Interface:
         self.TM = TaskManagement(val)
         while True:
             log_commands_allowed = ["add", "list", "update", "delete", "logout"]
-            log_enter = input("Task Manager > ")
+            log_enter = input("Task Manager$ ")
             log_command = list(log_enter.split(" "))
             first_part_of_log_command = log_command[0]
             if first_part_of_log_command not in log_commands_allowed:
@@ -110,19 +110,21 @@ if __name__ == '__main__':
     print("App started")
     interface = Interface()
     while True:
-        user_enter = input("User Manager >")
+        user_enter = input("User Manager$ ")
         command = list(user_enter.split(" "))
         commands_allowed = ["register", "login", "deleteuser", "listusers", "updateuser"]
         first_part_of_command = command[0]
-        if first_part_of_command in commands_allowed:
-            if first_part_of_command == commands_allowed[0]:
-                interface.register(command)
-            elif first_part_of_command == commands_allowed[1]:
-                interface.login()
-            elif first_part_of_command == commands_allowed[2]:
-                interface.deleteuser(command)
-            elif first_part_of_command == commands_allowed[3]:
-                interface.listusers()
-            elif first_part_of_command == commands_allowed[4]:
-                interface.updateuser(command)
+        if not first_part_of_command in commands_allowed:
             print("Invalid Expression")
+            continue
+        if first_part_of_command == commands_allowed[0]:
+            interface.register(command)
+        elif first_part_of_command == commands_allowed[1]:
+            interface.login()
+        elif first_part_of_command == commands_allowed[2]:
+            interface.deleteuser(command)
+        elif first_part_of_command == commands_allowed[3]:
+            interface.listusers()
+        elif first_part_of_command == commands_allowed[4]:
+            interface.updateuser(command)
+
