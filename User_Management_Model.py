@@ -10,6 +10,7 @@ class User_Management_Model(DatabaseManagement):
         for x in range(len(self.f)):
             if self.f[x]['username']==usr:
                 check=1
+                print('Username Taken')
                 break
         if check==0:
             d={'userid':utilities.generate_unique_id(),'username':usr,'password':password}

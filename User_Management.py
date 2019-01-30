@@ -14,11 +14,5 @@ class User_Man(User_Management_Model):
         self.deleteuser(username,password)
     def listusers(self):
         self.listUsers()
-    def userupdate(self,username,task):
-        i=task.find('=')
-        if i!=-1:
-            command=task[0:i]
-            content=task[i+1:len(task)]
-        else:
-            print('Incorrect Command')
+    def userupdate(self,username,command,content):
         self.userUpdate(username,command,content)
