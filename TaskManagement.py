@@ -1,4 +1,5 @@
 from TaskManagementMod import TaskManagementMod
+import utilities
 
 
 class TaskManagement (TaskManagementMod):
@@ -10,19 +11,23 @@ class TaskManagement (TaskManagementMod):
         print("Add called")
         super().insertTask(date, content)
 
-    def list(self, options):
-        print("List called")
-        for task in self.userTasks:
-            print(task)
-
     def listByDate(self, date):
-        print(date)
+        print("List called By Date")
+        for task in self.userTasks:
+            if task['date'] == date:
+                print(task)
 
     def listAsc(self):
-        print()
+        print("List called Ascending")
+        tasks = utilities.myDateSort(self.userTasks.copy())
+        for task in tasks:
+            print(task)
 
     def listDesc(self):
-        print()
+        print("List called Descending")
+        tasks = utilities.myDateSort(self.userTasks.copy())[::-1]
+        for task in tasks:
+            print(task)
 
     def count(self):
         print()
