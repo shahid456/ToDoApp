@@ -30,7 +30,7 @@ class User_Management_Model(DatabaseManagement):
         if  check!=-1:
             return self.f[x]['userid']
         return -1
-    def deleteuser(self,usrname,password):
+    def deleteUser(self,usrname,password):
         for x in range(len(self.f)):
             if self.f[x]['username'] == usrname:
                 if self.f[x]['password']==password:

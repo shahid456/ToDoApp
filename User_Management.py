@@ -11,7 +11,7 @@ class User_Man(User_Management_Model):
         return self.LoginUser(name,Pass)
     def deleteuser(self,username):
         password=input("Enter User Password")
-        self.deleteuser(username,password)
+        self.deleteUser(username,password)
     def listusers(self):
         self.listUsers()
     def userupdate(self,username,command,content):
