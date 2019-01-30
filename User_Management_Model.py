@@ -1,10 +1,10 @@
 from DatabaseManagement import DatabaseManagement
 import json
 import utilities
-class User_Management_Model:
-    def _init_(self):
-        self.data=DatabaseManagement('user.json')
-        self.f=self.data.read()
+class User_Management_Model(DatabaseManagement):
+    def __init__(self):
+        super().__init__(self)
+        self.f=self.read()
     def registeruser(self,usr,password):
         check=0
         for x in range(len(self.f)):
@@ -14,7 +14,7 @@ class User_Management_Model:
         if check==0:
             d={'userid':utilities.generate_unique_id(),'username':usr,'password':password}
             self.f.append(d)
-            self.data.write(self.f)
+            self.write(self.f)
     def LoginUser(self,usr,pasword):
         check = -1
         for x in range(len(self.f)):
@@ -34,7 +34,7 @@ class User_Management_Model:
                 if self.f[x]['password']==password:
                     print('User Deleted')
                     self.f.pop(x)
-                    self.data.write(self.f)
+                    self.write(self.f)
                     break
                 else:
                     print('Incorrect Password')
@@ -48,6 +48,7 @@ class User_Management_Model:
                 l=self.f[x].keys()
                 if command in l:
                     self.f[x][command]=content
+                    self.write(f)
                     return
                 else:
                     print('No such Command')
