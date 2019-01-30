@@ -88,37 +88,29 @@ class Interface:
             elif first_part_of_log_command == log_commands_allowed[4]:
                     return
 
-
-
-
-    def deleteuser(self,command):
-        if len(command) == 2:
-            user_man = User_Man()
-            user_man.deleteuser(command[1])
-        else:
+    def deleteuser(self, command):
+        if len(command) != 2:
             print("Invalid Expression")
+            return
+        user_man = User_Man()
+        user_man.deleteuser(command[1])
+
     def listusers(self):
          user_man = User_Man()
          user_man.listusers()
-    def updateuser(self,command):
-        if len(command)==3:
-            user_man = User_Man()
-            user_man.userupdate(command[1],command[2])
 
-
-
-
-
-
+    def updateuser(self, command):
+        if len(command)!=3:
+            print("Invalid Expression")
+        user_man = User_Man()
+        user_man.userupdate(command[1],command[2])
 
 
 if __name__ == '__main__':
-
     print("App started")
     interface = Interface()
-    while(1):
-
-        user_enter = input()
+    while True:
+        user_enter = input("User Manager >")
         command = list(user_enter.split(" "))
         commands_allowed = ["register", "login", "deleteuser", "listusers", "updateuser"]
         first_part_of_command = command[0]
