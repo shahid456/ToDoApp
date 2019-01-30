@@ -7,3 +7,4 @@ class User_Man(Model):
         Model.registeruser(user,password)
 
 
+
