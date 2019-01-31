@@ -33,7 +33,7 @@ class Interface:
                 if first_part_of_log_command == log_commands_allowed[0]:
                     log_command = log_enter.split(" ", 1)
                     if len(log_command) != 2:
-                        print("Input date is not valid.")
+                        print("Input data is not valid.")
                         continue
                     inputDate, content = list(log_command[1].split(";"))
                     day, month, year = inputDate.split('/')
@@ -47,7 +47,7 @@ class Interface:
                         self.TM.list()
                         continue
                     if len(log_command) != 2:
-                        print("Input date is not valid.")
+                        print("Input data is not valid.")
                         continue
                     options = ["asc", "desc", "count"]
                     if log_command[1] not in options:
@@ -68,7 +68,7 @@ class Interface:
                             self.TM.count()
                 elif first_part_of_log_command == log_commands_allowed[2]:
                     if len(log_command) != 3:
-                        print("Input date is not valid.")
+                        print("Input data is not valid.")
                         continue
                     fields = list(log_command[2].split("="))
                     if fields[0] == "date":
@@ -77,7 +77,7 @@ class Interface:
                         try:
                             datetime.datetime(int(year), int(month), int(day))
                         except ValueError:
-                            print("Input date is not valid..")
+                            print("Input data is not valid..")
                             continue
                     self.TM.update(log_command[1], fields[0], fields[1])
                 elif first_part_of_log_command == log_commands_allowed[3]:
