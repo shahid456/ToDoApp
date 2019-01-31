@@ -9,16 +9,13 @@ class User_Management_Model(DatabaseManagement):
         self.f = self.read()
 
     def registeruser(self, usr, password):
-        check = 0
         for x in range(len(self.f)):
             if self.f[x]['username'] == usr:
-                check = 1
                 print('Username Taken')
-                break
-        if check == 0:
-            d = {'userid': utilities.generate_unique_id(), 'username': usr, 'password': password}
-            self.f.append(d)
-            self.write(self.f)
+                return
+        d = {'userid': utilities.generate_unique_id(), 'username': usr, 'password': password}
+        self.f.append(d)
+        self.write(self.f)
 
     def LoginUser(self, usr, pasword):
         check = -1
@@ -29,23 +26,25 @@ class User_Management_Model(DatabaseManagement):
                     print('User Logged In')
                     break
                 else:
-                    print('Incorrect Password, Access Denied')
-                    return ""
+                    return -1
         if check != -1:
             return self.f[check]['userid']
         return -1
 
-    def deleteUser(self, usrname, password):
+    def deleteUser(self, usrname):
         for x in range(len(self.f)):
             if self.f[x]['username'] == usrname:
+                password = input("Enter User Password: ")
                 if self.f[x]['password'] == password:
                     print('User Deleted')
                     self.f.pop(x)
                     self.write(self.f)
-                    break
+                    return
                 else:
                     print('Incorrect Password')
-                    break
+                    return
+        print('Username not found')
+
 
     def listUsers(self):
         for x in range(len(self.f)):
@@ -56,11 +55,17 @@ class User_Management_Model(DatabaseManagement):
             if self.f[x]['username'] == user:
                 l = self.f[x].keys()
                 if command in l:
-                    self.f[x][command] = content
-                    self.write(self.f)
-                    return
+                    pas = input('Enter User Password: ')
+                    if pas==self.f[x]['password']:
+                        self.f[x][command] = content
+                        self.write(self.f)
+                        print('Property Updated')
+                        return
+                    else:
+                        print('Incorrect Password')
+                        return
                 else:
-                    print('No such Command')
+                    print('Property does not exist')
                     return
         print('Invalid User')
 

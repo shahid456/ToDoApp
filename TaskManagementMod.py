@@ -4,7 +4,6 @@ import utilities
 
 class TaskManagementMod:
     def __init__(self, userId):
-        print("Task Management constructor called")
         self.filename = 'tasks.json'
         self.userId = userId
         self.__tasks = []

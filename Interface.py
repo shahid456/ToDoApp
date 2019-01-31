@@ -5,7 +5,7 @@ import datetime
 
 class Interface:
     def __init__(self):
-        print("Constructor called")
+        pass
 
     def register(self,command):
         if len(command) != 3:
@@ -18,7 +18,7 @@ class Interface:
         user_man = User_Man()
         val = user_man.login()
         if val == -1:
-            print("Access denied")
+            print("Access denied, Incorrect Username or Password")
             return
         self.TM = TaskManagement(val)
         while True:

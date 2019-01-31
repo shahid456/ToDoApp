@@ -9,13 +9,13 @@ class User_Man(User_Management_Model):
         self.registeruser(user, password)
 
     def login(self):
-        name = input("Enter User name")
-        password = input("Enter User's Pass")
+        name = input("Enter User name: ")
+        password = input("Enter User's Pass: ")
         return self.LoginUser(name, password)
 
     def deleteuser(self, username):
-        password = input("Enter User Password")
-        self.deleteUser(username, password)
+
+        self.deleteUser(username)
 
     def listusers(self):
         self.listUsers()
