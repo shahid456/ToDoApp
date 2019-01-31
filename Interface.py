@@ -43,6 +43,8 @@ class Interface:
                     except ValueError :
                         print("Date is not correct")
                 elif first_part_of_log_command == log_commands_allowed[1]:
+                    if len(log_command) == 1:
+                        self.TM.list()
                     if len(log_command) != 2:
                         print("Input date is not valid.")
                         continue

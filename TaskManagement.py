@@ -10,6 +10,10 @@ class TaskManagement (TaskManagementMod):
     def add(self, date, content):
         super().insertTask(date, content)
 
+    def list(self):
+        for task in self.userTasks:
+            print(task)
+
     def listByDate(self, date):
         for task in self.userTasks:
             if task['date'] == date:
